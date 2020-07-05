@@ -11,14 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/items/create', 'ItemController@create'); // menampilkan halaman form
+// Route::post('/items', 'ItemController@store'); // menyimpan data
+// Route::get('/items', 'ItemController@index'); // menampilkan semua
+// Route::get('/items/{id}', 'ItemController@show'); // menampilkan detail item dengan id 
+// Route::get('/items/{id}/edit', 'ItemController@edit'); // menampilkan form untuk edit item
+// Route::put('/items/{id}', 'ItemController@update'); // menyimpan perubahan dari form edit
+// Route::delete('/items/{id}', 'ItemController@destroy'); // menghapus data dengan id
+
+Route::get('/master', function() {
+    return view('layouts.master');
 });
 
-Route::get('/items/create', 'ItemController@create'); // menampilkan halaman form
-Route::post('/items', 'ItemController@store'); // menyimpan data
-Route::get('/items', 'ItemController@index'); // menampilkan semua
-Route::get('/items/{id}', 'ItemController@show'); // menampilkan detail item dengan id 
-Route::get('/items/{id}/edit', 'ItemController@edit'); // menampilkan form untuk edit item
-Route::put('/items/{id}', 'ItemController@update'); // menyimpan perubahan dari form edit
-Route::delete('/items/{id}', 'ItemController@destroy'); // menghapus data dengan id
+Route::get('/', 'ErdController@showimage');
+Route::get('/artikel', 'ArticlesController@index');
+Route::get('/artikel/create', 'ArticlesController@form');
+Route::post('/artikel', 'ArticlesController@save');
+Route::get('/artikel/{id}', 'ArticlesController@show');
+Route::get('/artikel/{id}/edit', 'ArticlesController@edit');
+Route::put('/artikel/{id}', 'ArticlesController@update');
+Route::delete('/artikel/{id}', 'ArticlesController@delete');
